@@ -1,4 +1,4 @@
-### Darkfam News - (a news reading app)
+# Darkfam News - (a news reading app)
 
 ## About Project : 
 * In home page user can see top headline news of india
@@ -6,4 +6,4 @@
 * Users can search about the topics they want to see on the navber
 * Quick filters added on Navber for users
 
-# Technology : ReactJs, react-icons, react-router-dom, tailwind(daisyUi)
+### Technology : ReactJs, react-icons, react-router-dom, tailwind(daisyUi)
