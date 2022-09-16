@@ -29,12 +29,12 @@ const SearchedPage = () => {
     for (let i = 1; i <= Math.ceil(news?.length / postsPerPage); i++) {
       pageNumbers.push(i);
     }
-    if(news.length === 0 || loading){
+    if(news?.length === 0 || loading){
       return <Loading/>
     }
   return (
     <div>
-      <h1 className='capitalize text-4xl text-center'>showing results of {name}</h1> 
+      <h1 className='capitalize text-4xl  md:text-5xl lg:text-6xl text-center news_head '>showing results of {name}</h1> 
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 px-4 py-6'>
       {currentPosts?.map(article => <Card article={article}/>)}
       </div>

@@ -28,7 +28,7 @@ const Category = () => {
     for (let i = 1; i <= Math.ceil(news?.length / postsPerPage); i++) {
       pageNumbers.push(i);
     }
-    if(news.length === 0 || loading){
+    if(news?.length === 0 || loading){
       return <Loading/>
     }
   return (
