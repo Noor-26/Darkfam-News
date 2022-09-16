@@ -8,10 +8,11 @@ const Category = () => {
   const [loading, setLoading] = useState(false)
     
     const [news, setnews] = useState([])
-  
+    // for setting the pages of pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setpostPerPage] = useState(10);
   
+    // showing the news using paginaiton
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = news?.slice(indexOfFirstPost, indexOfLastPost);
@@ -23,17 +24,19 @@ const Category = () => {
     }, [categoryName])
    
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+    
+    // defining the numbers of button of the pagination
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(news?.length / postsPerPage); i++) {
       pageNumbers.push(i);
     }
+    
     if(news?.length === 0 || loading){
       return <Loading/>
     }
   return (
     <div>
-      <h1 className='uppercase text-5xl md:text-6xl text-center category_head'> {categoryName} news</h1> 
+      <h1 className='uppercase text-5xl md:text-6xl text-center news_head'> {categoryName} news</h1> 
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 px-4 py-6'>
       {currentPosts?.map(article => <Card article={article}/>)}
       </div>

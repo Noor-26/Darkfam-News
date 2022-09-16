@@ -6,24 +6,29 @@ import Loading from '../shared/Loading/Loading'
 const Home = () => {
   const [news, setnews] = useState([])
   const [loading, setLoading] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setpostPerPage] = useState(10);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = news?.slice(indexOfFirstPost, indexOfLastPost);
+   // for setting the pages of pagination
+   const [currentPage, setCurrentPage] = useState(1);
+   const [postsPerPage, setpostPerPage] = useState(10);
+ 
+   // showing the news using paginaiton
+   const indexOfLastPost = currentPage * postsPerPage;
+   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   const currentPosts = news?.slice(indexOfFirstPost, indexOfLastPost);
 
   useEffect(() => { 
     setLoading(true)
     fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=6a1d4f2afd3b4379bd04f56e72a8bb6d").then(res => res.json()).then(data =>   setnews(data.articles))
     setLoading(false)
   }, [])
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+    // defining the numbers of button of the pagination
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(news?.length / postsPerPage); i++) {
     pageNumbers.push(i);
   }
+
   if(news?.length === 0 || loading){
     return <Loading/>
   }
