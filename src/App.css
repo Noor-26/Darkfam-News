@@ -4,22 +4,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Newsreader:opsz,wght@6..72,500&family=Poppins&family=Satisfy&display=swap');
 
+/* set poppins as a default font */
 *{
     font-family: 'Poppins', sans-serif;
 }
 
-.category_head{
-    font-family: 'Blaka Ink', cursive;
-}
+/* set heading font for Home, Searched and category page */
+
 .news_head{
     font-family: 'Newsreader', serif;
 }
 
-
-
+/* font for  for navber logo */
 .nav_head{
     font-family: 'Satisfy', cursive;
-}
-.card{
-    border-radius: 10px;
 }
