@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom'
 import Card from '../../shared/Card/Card'
 import Loading from '../../shared/Loading/Loading'
 
-const SearchedPage = () => {
-    const {name} = useParams()
+const Category = () => {
+  const {categoryName} = useParams()
+  const [loading, setLoading] = useState(false)
+    
     const [news, setnews] = useState([])
-    const [loading, setLoading] = useState(false) 
   
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setpostPerPage] = useState(10);
@@ -17,11 +18,9 @@ const SearchedPage = () => {
 
     useEffect(() => { 
       setLoading(true)
-
-      fetch(`https://newsapi.org/v2/everything?q=${name}&from=2022-08-15&sortBy=publishedAt&apiKey=6a1d4f2afd3b4379bd04f56e72a8bb6d`).then(res => res.json()).then(data =>   setnews(data.articles))
-      setLoading(false)
-   
-    }, [name])
+      fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${categoryName}&apiKey=6a1d4f2afd3b4379bd04f56e72a8bb6d`).then(res => res.json()).then(data =>   setnews(data.articles))
+   setLoading(false)
+    }, [categoryName])
    
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -34,7 +33,7 @@ const SearchedPage = () => {
     }
   return (
     <div>
-      <h1 className='capitalize text-4xl text-center'>showing results of {name}</h1> 
+      <h1 className='uppercase text-5xl md:text-6xl text-center category_head'> {categoryName} news</h1> 
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 px-4 py-6'>
       {currentPosts?.map(article => <Card article={article}/>)}
       </div>
@@ -63,4 +62,4 @@ const SearchedPage = () => {
   )
 }
 
-export default SearchedPage
+export default Category

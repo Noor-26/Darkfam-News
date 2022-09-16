@@ -1,10 +1,12 @@
 import React from 'react'
 
 const Card = ({article}) => {
-    const {author,source,description,publishedAt,title,url,urlToImage,content} = article
+    const {description,publishedAt,title,url,urlToImage,content} = article
   return (
     
-    <div className="card card-compact h-fit bg-base-100 shadow-xl">
+    <div className="card card-compact h-fit bg-base-100 shadow-xl" data-aos="fade-up"
+    data-aos-anchor-placement="top-center"
+    data-aos-duration="1000" >
   <figure><img src={urlToImage || ""} alt="news images" /></figure>
   <div className="card-body">
     <h2 className="card-title">{title}</h2>

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Newsreader:opsz,wght@6..72,500&family=Poppins&family=Satisfy&display=swap');
+
+.category_head{
+    font-family: 'Blaka Ink', cursive;
+}
+
 .card{
     border-radius: 10px;
 }
